@@ -27,10 +27,10 @@ function renderOffers() {
   grid.innerHTML = filtered.length ? filtered.map(offer => {
     const title = safeText(offer.titulo || offer.texto_bruto || "Achadinho");
     const link = safeText(offer.url_original || offer.link || "#");
-    const image = offer.imagem_url && /^https?:\/\//i.test(offer.imagem_url) ? `<img loading="lazy" src="${safeText(offer.imagem_url)}" alt="">` : "🐞";
+    const image = offer.imagem_url && /^https?:\/\//i.test(offer.imagem_url) ? `<img loading="lazy" src="${safeText(offer.imagem_url)}" alt="">` : "👧🏻";
     const price = offer.preco ? `<div class="offer-price">${safeText(offer.preco)}</div>` : "";
     return `<article class="offer-card"><div class="offer-image">${image}</div><div class="offer-body"><span class="offer-platform">${safeText(offer.plataforma || "Achadinho")}</span><h3 class="offer-title">${title}</h3>${price}<a class="offer-link" href="${link}" target="_blank" rel="noopener noreferrer">Ver na loja ↗</a></div></article>`;
-  }).join("") : `<div class="empty-state">${offers.length ? "Não encontrei ofertas com esse filtro. Tente outra busca. 💛" : "Assim que o catálogo receber ofertas, elas vão aparecer aqui. 🐞"}</div>`;
+  }).join("") : `<div class="empty-state">${offers.length ? "Não encontrei ofertas com esse filtro. Tente outra busca. 💛" : "Assim que o catálogo receber ofertas, elas vão aparecer aqui. 👧🏻"}</div>`;
   status.textContent = `${filtered.length} ${filtered.length === 1 ? "achadinho encontrado" : "achadinhos encontrados"}`;
 }
 async function loadOffers() {
