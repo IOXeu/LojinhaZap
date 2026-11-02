@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         ColePoste — Capturador de Ofertas v3.6
 // @namespace    https://github.com/IOXeu/LojinhaZap
-// @version      3.6.0
+// @version      3.6.1
 // @description  Captura mensagens com links no WhatsApp Web e envia ao Worker LojinhaZap.
 // @match        https://web.whatsapp.com/*
 // @grant        GM_xmlhttpRequest
-// @connect      alojinhazap.hdmicro.workers.dev
+// @connect      lojinhazap.hdmicro.workers.dev
 // ==/UserScript==
 
 (function () {
   'use strict';
-  const API_URL = 'https://alojinhazap.hdmicro.workers.dev/api/achadinhos';
+  const API_URL = 'https://lojinhazap.hdmicro.workers.dev/api/achadinhos';
   // Configure localmente o mesmo token definido como secret INGEST_TOKEN no Worker.
   // Não coloque o token real em repositório público.
   const INGEST_TOKEN = 'CONFIGURE_UM_TOKEN_LOCAL_AQUI';
@@ -68,8 +68,9 @@
         emEnvio.delete(key);
         if(r.status>=200&&r.status<300){
           processadas.add(key);total++;
-          document.getElementById('cp-count').textContent=String(total);
-          document.getElementById('cp-last').textContent=(text.split('\n').find(s=>s.trim())||link).slice(0,25);
+          const count=document.getElementById('cp-count'), last=document.getElementById('cp-last');
+          if(count)count.textContent=String(total);
+          if(last)last.textContent=(text.split('\n').find(s=>s.trim())||link).slice(0,25);
           setStatus('Oferta registrada ou duplicada.', '#00ff88');
         } else {setStatus('Erro HTTP '+r.status+'; nova tentativa possível.', '#ff6b6b');}
       },
@@ -78,7 +79,6 @@
     });
   }
   function scan() {
-    // Seletor propositalmente restrito; validar no DOM real de canais do WhatsApp.
     document.querySelectorAll('.message-in').forEach(node=>{
       const text=(node.innerText||'').trim();if(!text)return;
       const link=[...node.querySelectorAll('a[href^="http"]')].map(a=>a.href).find(h=>{
