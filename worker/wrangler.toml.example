@@ -1,0 +1,15 @@
+name = "lojinhazap-anuncios"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-blokinho"
+database_id = "PREENCHER_COM_O_ID_REAL_DO_D1"
+
+[triggers]
+crons = ["0 3 * * *"]
+
+# Configure separadamente:
+# npx wrangler secret put INGEST_TOKEN
+# Opcional: npx wrangler secret put CORS_ORIGINS
