@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff7e9">
+  <meta name="description" content="Entre na Casa da Juju: achadinhos, ofertas e diversão para toda a família.">
+  <title>Mundo da Juju — A casa dos achadinhos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <script type="module" src="./app/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Mundo da Juju, início">
+      <span class="brand-mark" aria-hidden="true">🐞</span>
+      <span><strong>Mundo da Juju</strong><small>um mundo de bons achadinhos</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navegação principal">
+      <a href="#casinha">A casinha</a><a href="#ofertas">Achadinhos</a><a href="#diversao">Diversão</a>
+    </nav>
+    <button class="juju-talk" id="open-assistant" type="button"><span aria-hidden="true">💬</span> Falar com a Juju</button>
+  </header>
+
+  <main id="conteudo">
+    <section class="welcome section-wrap">
+      <div class="welcome-copy">
+        <span class="eyebrow"><span class="sparkle">✦</span> Oi, que bom ter você aqui!</span>
+        <h1>Entre, a casa é sua.<br><em>Os achadinhos também!</em></h1>
+        <p>Eu sou a Juju. Preparei cantinhos especiais para você descobrir ofertas, encontrar novidades e se divertir.</p>
+        <a class="primary-button" href="#casinha">Explorar a casinha <span aria-hidden="true">↘</span></a>
+        <div class="welcome-note"><span>☀️</span> Um cantinho leve, feito com carinho.</div>
+      </div>
+      <div class="welcome-art" aria-label="Ilustração da casinha colorida da Juju">
+        <div class="sun-disc"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="house">
+          <div class="roof"></div><div class="house-front">
+            <div class="attic-window"><i></i><i></i></div>
+            <div class="window window-left"><i></i><i></i></div><div class="door"><span>♡</span></div>
+            <div class="window window-right"><i></i><i></i></div>
+          </div>
+          <div class="steps"></div>
+        </div>
+        <div class="flower flower-a">🌼</div><div class="flower flower-b">🌷</div>
+        <div class="juju-mascot" aria-label="Juju, a joaninha"><span class="bug-face">◡</span><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><b>Juju</b></div>
+        <span class="art-label">pode chegar! <span>♡</span></span>
+      </div>
+    </section>
+
+    <section class="rooms-section section-wrap" id="casinha">
+      <div class="section-heading"><div><span class="eyebrow">✦ CADA CANTINHO, UMA DESCOBERTA</span><h2>Vamos passear pela casa?</h2></div><p>Escolha uma porta e veja o que a Juju separou.</p></div>
+      <div class="rooms-grid">
+        <a class="room-card room-shoes" href="#ofertas" data-category="calcados"><span class="room-icon">👟</span><span class="room-name">Cantinho dos calçados</span><span class="room-desc">Passos cheios de estilo</span><span class="room-arrow">↗</span></a>
+        <a class="room-card room-baby" href="#ofertas" data-category="bebes"><span class="room-icon">🧸</span><span class="room-name">Quarto dos bebês</span><span class="room-desc">Pequenos mimos e cuidados</span><span class="room-arrow">↗</span></a>
+        <a class="room-card room-fashion" href="#ofertas" data-category="roupas"><span class="room-icon">👗</span><span class="room-name">Closet da Juju</span><span class="room-desc">Looks para todos os dias</span><span class="room-arrow">↗</span></a>
+        <a class="room-card room-tech" href="#ofertas" data-category="tech"><span class="room-icon">🎧</span><span class="room-name">Espaço tech</span><span class="room-desc">Ideias espertas e conectadas</span><span class="room-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="offers-section" id="ofertas">
+      <div class="section-wrap">
+        <div class="section-heading offers-heading"><div><span class="eyebrow">✦ GARIMPO DA JUJU</span><h2>Achadinhos que valem a visita</h2></div><span class="live-pill"><i></i> Ofertas do nosso catálogo</span></div>
+        <div class="offer-toolbar"><label class="search-box"><span>⌕</span><input id="offer-search" type="search" placeholder="O que você está procurando?" aria-label="Buscar ofertas"></label><div class="filters" role="group" aria-label="Filtrar ofertas"><button class="filter active" data-filter="todas">Todas</button><button class="filter" data-filter="calcados">Calçados</button><button class="filter" data-filter="bebes">Bebês</button><button class="filter" data-filter="roupas">Roupas</button><button class="filter" data-filter="tech">Tech</button></div></div>
+        <div class="offers-status" id="offers-status" role="status">Buscando os achadinhos cadastrados…</div>
+        <div class="offers-grid" id="offers-grid"></div>
+        <p class="catalog-note">A Juju mostra somente itens recebidos do catálogo. Preços e disponibilidade podem mudar na loja de origem.</p>
+      </div>
+    </section>
+
+    <section class="assistant-banner section-wrap">
+      <div class="banner-bug">🐞</div><div><span class="eyebrow">SUA COMPANHEIRA DE DESCOBERTAS</span><h2>Não sabe por onde começar?</h2><p>Pergunte para a Juju. Ela procura no catálogo e ajuda você a encontrar o que já está cadastrado.</p></div><button class="primary-button" id="banner-assistant" type="button">Conversar com a Juju <span>♡</span></button>
+    </section>
+
+    <section class="fun-section section-wrap" id="diversao">
+      <div class="section-heading"><div><span class="eyebrow">✦ PAUSA PARA BRINCAR</span><h2>O cantinho da diversão</h2></div><p>Os jogos da família vão morar aqui.</p></div>
+      <div class="fun-placeholder"><span>🎠</span><div><strong>Tem brincadeira chegando!</strong><p>Esta área está preparada para receber os cinco jogos que você já tem. Vamos integrar os arquivos originais sem refazer os jogos.</p></div><span class="coming-soon">EM PREPARAÇÃO</span></div>
+    </section>
+  </main>
+
+  <footer class="footer"><span class="footer-bug">🐞</span><strong>Mundo da Juju</strong><span>Feito com carinho para deixar suas descobertas mais leves.</span><a href="#conteudo">Voltar ao topo ↑</a></footer>
+
+  <div class="assistant-panel" id="assistant-panel" aria-hidden="true">
+    <div class="assistant-head"><div class="assistant-avatar">🐞</div><div><strong>Juju</strong><small>Assistente do Mundo da Juju</small></div><button id="close-assistant" aria-label="Fechar conversa">×</button></div>
+    <div class="assistant-messages" id="assistant-messages"><div class="juju-message">Oiê! 💛 Eu posso procurar ofertas que já estão no nosso catálogo. O que você quer encontrar?</div></div>
+    <form id="assistant-form" class="assistant-form"><input id="assistant-input" autocomplete="off" placeholder="Escreva sua pergunta…" aria-label="Sua mensagem"><button type="button" id="voice-button" aria-label="Falar com a Juju" title="Falar">🎙️</button><button type="submit" aria-label="Enviar mensagem">➤</button></form>
+    <p class="assistant-hint">A Juju não inventa produtos nem preços: ela consulta os dados disponíveis.</p>
+  </div>
+  <div class="panel-backdrop" id="panel-backdrop"></div>
+</body>
+</html>
